@@ -1,0 +1,22 @@
+footer{
+  background-color: #2D2727;
+}
+
+h1{
+  color: purple;
+}
+
+.border{
+  border:solid 2px red;
+}
+
+#lblGrabDesc{
+  color:#F4F4F4;
+}
+
+#imgGrabLogo{
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 40px;
+  width: 40px;
+}

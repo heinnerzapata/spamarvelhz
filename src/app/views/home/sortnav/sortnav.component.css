@@ -1,0 +1,18 @@
+.border{
+  border: solid 1px red;
+}
+
+#imgCharacter{
+  height: 30px;
+  width: 30px;
+}
+
+#sortNavComponent{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#lblChars{
+  font-size: 16px;
+  font-weight: bold; 
+}
