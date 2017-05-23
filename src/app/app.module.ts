@@ -10,7 +10,7 @@ import {FooterComponent} from './layout/footer/footer.component';
 
 import {HomeComponent} from './views/home/home.component';
 import {SortNavComponent} from './views/home/sortnav/sortnav.component';
-
+import { CardListComponent } from './views/home/cardlist/cardlist.component';
 
 import { routes } from './app.routes'
 
@@ -26,7 +26,8 @@ import { routes } from './app.routes'
       HeaderComponent,
       FooterComponent,
       HomeComponent,
-      SortNavComponent
+      SortNavComponent,
+      CardListComponent
    ],
    providers: [],
    bootstrap: [ AppComponent ]
