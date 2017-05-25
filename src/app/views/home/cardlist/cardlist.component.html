@@ -1,10 +1,28 @@
 <section id="cardlistSection">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" *ngFor='let character of characters'>
-        <div class="card">
-          <h2>{{character.id}}</h2>
-          <h1>{{character.name}}</h1>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 noMargin noPadding" *ngFor='let character of characters'>
+        <div class="container card border">
+          <div class="row">
+            <div class="col-xs-12 col-md-5 text-center text-sm-center noMargin noPadding border">
+              <img class="imgCharacter rounded-circle" src="assets/images/characters.png">
+            </div>
+            <div class="col-xs-12 col-md-7 noMargin noPadding border">
+              <div class="row">
+                <div class="col-12 text-center text-sm-left">
+                  <div class="lblCharName">{{character.name}}</div>
+                </div>
+                <div class="col-12 text-center text-sm-left">
+                  <div class="lblCharDesc">{{character.description}}</div>
+                </div>
+                <div class="col-12 text-center text-sm-left">
+                  <button class="btn btn-primary">
+                    View more
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
