@@ -1,14 +1,14 @@
 <section id="cardlistSection">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 noMargin noPadding" *ngFor='let character of characters'>
-        <div class="container card border">
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 noMargin noPadding cardContainer" *ngFor='let character of characters'>
+        <div class="container card ">
           <div class="row">
-            <div class="col-xs-12 col-md-5 text-center text-sm-center noMargin noPadding border">
-              <img class="imgCharacter rounded-circle" src="assets/images/characters.png">
+              <div class="col-xs-12 col-md-7 text-center text-sm-center noMargin noPadding ">
+              <img class="imgCharacter rounded-circle" src='{{character.thumbnail.path + "." +  character.thumbnail.extension}}'>
             </div>
-            <div class="col-xs-12 col-md-7 noMargin noPadding border">
-              <div class="row">
+              <div class="col-xs-12 col-md-5 noMargin noPadding ">
+              <div class="row leftRowDesc">
                 <div class="col-12 text-center text-sm-left">
                   <div class="lblCharName">{{character.name}}</div>
                 </div>
@@ -20,6 +20,13 @@
                     View more
                   </button>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <div class="lblRelatedContainer">
+                <span id="lblRelated">Related comics</span>
               </div>
             </div>
           </div>

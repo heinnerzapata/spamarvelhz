@@ -5,10 +5,12 @@
   margin: 2px;
   border-radius: 0px;
   margin-top: 40px;
+
 }
 
 #lblChars{
-  color: #2D2727;
+  color: rgb(60,50,49);
+  font-size: 18px;
 }
 
 .border{
@@ -16,9 +18,9 @@
 }
 
 .imgCharacter{
-  -webkit-box-shadow: 8px 7px 41px -2px rgba(0,0,0,0.75);
-  -moz-box-shadow: 8px 7px 41px -2px rgba(0,0,0,0.75);
-  box-shadow: 8px 7px 41px -2px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 3px 3px 34px -3px rgba(0,0,0,0.75);
+  -moz-box-shadow: 3px 3px 34px -3px rgba(0,0,0,0.75);
+  box-shadow: 3px 3px 34px -3px rgba(0,0,0,0.75);
 
   margin-top: -20px;
 
@@ -29,26 +31,56 @@
 }
 
 .lblCharName{
-  font-size: 28px;
+  font-size: 24px;
   font-weight: bold;
-  color:#2D2727;
+  color:rgb(60,50,49);
   margin-top: -25px;
+}
+
+.btn-primary{
+  background-color: RGB(236,29,35);
+}
+
+.lblCharDesc{
+  color:rgb(60,50,49);
+}
+
+.leftRowDesc{
+  margin-left: -40px;
+}
+
+.lblRelatedContainer{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#lblRelated{
+  font-size: 20px;
+  font-weight: bold;
+  color:rgb(60,50,49);
+  margin-left: 10px;
 }
 
 @media (max-width: 580px) {
 
   .imgCharacter{
-    width: 60%;
+    width: 80%;
     margin-left: 0px;
     margin-top: -20px;
   }
 
-
+  .leftRowDesc{
+    margin-left: 0px;
+  }
 
 }
 
 @media (max-width: 767px) {
   .lblCharName{
     margin-top: 0px;
+  }
+
+  .leftRowDesc{
+    margin-left: 0px;
   }
 }
