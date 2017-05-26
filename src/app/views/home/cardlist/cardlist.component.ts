@@ -17,7 +17,7 @@ export class CardListComponent{
 
   }
 
-  public characters = [];
+  public characters:Array<Character> = [];
 
   consultar() {
     this.marvelApiService.getCharacters().subscribe(
