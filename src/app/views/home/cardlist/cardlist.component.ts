@@ -1,28 +1,41 @@
-import { Component } from '@angular/core';
+import { Component , Input , OnChanges , SimpleChanges} from '@angular/core';
 import { Character } from './../../../models/character';
 import { MarvelApiService } from './../../../services/marvelapi.service';
+import { SearchService } from './../../../services/search.service';
 
 @Component({
     selector : 'cardlist-component',
     templateUrl : './cardlist.component.html',
     styleUrls: ['./cardlist.component.css'],
-    providers:[MarvelApiService]
+    providers:[MarvelApiService , SearchService]
 })
 
 export class CardListComponent{
 
+  @Input()
+  searchFilter:String;
+
   constructor(private marvelApiService: MarvelApiService) {
 
-    this.consultar();
+    this.consultar(this.searchFilter);
 
   }
 
-  public characters:Array<Character> = [];
 
-  consultar() {
-    this.marvelApiService.getCharacters().subscribe(
+
+  public characters:Array<Character>;
+
+  consultar(searchFilter) {
+    
+    this.marvelApiService.getCharacters(searchFilter).subscribe(
       (data) => this.characters = data.data.results
     );
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+
+    this.consultar(this.searchFilter);
+
   }
 
   /*

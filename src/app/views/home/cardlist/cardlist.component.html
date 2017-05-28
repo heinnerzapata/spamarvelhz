@@ -1,34 +1,90 @@
 <section id="cardlistSection">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 noMargin noPadding cardContainer" *ngFor='let character of characters'>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 noMargin noPadding cardContainer" *ngFor='let character of characters'>
         <div class="container card ">
           <div class="row">
-              <div class="col-xs-12 col-md-7 text-center text-sm-center noMargin noPadding ">
-              <img class="imgCharacter rounded-circle" src='{{character.thumbnail.path + "." +  character.thumbnail.extension}}'>
-            </div>
-              <div class="col-xs-12 col-md-5 noMargin noPadding ">
-              <div class="row leftRowDesc">
-                <div class="col-12 text-center text-sm-left">
-                  <div class="lblCharName">{{character.name}}</div>
-                </div>
-                <div class="col-12 text-center text-sm-left">
-                  <div class="lblCharDesc">{{character.description}}</div>
-                </div>
-                <div class="col-12 text-center text-sm-left">
-                  <button class="btn btn-primary">
-                    View more
-                  </button>
-                </div>
+              <div class="col-xs-12 col-md-6 text-center text-sm-center noMargin noPadding ">
+                <img class="imgCharacter rounded-circle img-fluid" src='{{character.thumbnail.path + "." +  character.thumbnail.extension}}'>
               </div>
-            </div>
+              <div class="col-xs-12 col-md-6 noMargin noPadding ">
+
+                <div class="container-fluid">
+                  <div class="row leftRowDesc">
+                  <div class="col-12 text-center text-sm-left">
+                    <div class="lblCharName">{{character.name | uppercase}}</div>
+                  </div>
+                  <div class="col-12 text-center text-sm-left">
+                    <div class="lblCharDesc">
+                      <p class="descripCharacter">{{character.description}}</p>
+                    </div>
+                  </div>
+                  <div class="col-12 text-center text-sm-left">
+                    <button class="btn btn-primary btn-view-more">
+                      VIEW MORE
+                    </button>
+                  </div>
+                </div>
+
+                </div>
+
+              </div>
           </div>
           <div class="row">
             <div class="col-xs-12">
               <div class="lblRelatedContainer">
-                <span id="lblRelated">Related comics</span>
+                <span id="lblRelated" *ngIf="character.comics.items.length > 0">Related comics</span>
               </div>
             </div>
+          </div>
+          <div class="row">
+
+
+            <div class="col-12 col-md-6 text-center text-md-left comicDescContainer" *ngIf="character.comics.items[0] != undefined">
+              <div class="row">
+                <div class="col-12">
+                    <div class="imgFlagContainer">
+                      <img class="imgFlag" src="assets/images/link-arrow.png" [ngClass]="{'hidden-selected-comic':!character.comics.items[0].selected ,'hidden-selected-comic2':character.comics.items[0].selected }">
+                      <p class="comicNameContainer" (mouseenter)="character.comics.items[0].selected = !character.comics.items[0].selected" (mouseleave)="character.comics.items[0].selected = !character.comics.items[0].selected">{{character.comics.items[0].name}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-12 col-md-6 text-center text-md-left comicDescContainer" *ngIf="character.comics.items[1] != undefined">
+              <div class="row">
+                <div class="col-12">
+                    <div class="imgFlagContainer">
+                      <img class="imgFlag" src="assets/images/link-arrow.png" [ngClass]="{'hidden-selected-comic':!character.comics.items[1].selected ,'hidden-selected-comic2':character.comics.items[1].selected }">
+                      <p class="comicNameContainer" (mouseenter)="character.comics.items[1].selected = !character.comics.items[1].selected" (mouseleave)="character.comics.items[1].selected = !character.comics.items[1].selected">{{character.comics.items[0].name}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 text-center text-md-left comicDescContainer" *ngIf="character.comics.items[2] != undefined">
+              <div class="row">
+                <div class="col-12">
+                    <div class="imgFlagContainer">
+                      <img class="imgFlag" src="assets/images/link-arrow.png" [ngClass]="{'hidden-selected-comic':!character.comics.items[2].selected ,'hidden-selected-comic2':character.comics.items[2].selected }">
+                      <p class="comicNameContainer" (mouseenter)="character.comics.items[2].selected = !character.comics.items[2].selected" (mouseleave)="character.comics.items[2].selected = !character.comics.items[2].selected">{{character.comics.items[0].name}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6 text-center text-md-left comicDescContainer" *ngIf="character.comics.items[3] != undefined">
+              <div class="row">
+                <div class="col-12">
+                    <div class="imgFlagContainer">
+                      <img class="imgFlag" src="assets/images/link-arrow.png" [ngClass]="{'hidden-selected-comic':!character.comics.items[3].selected ,'hidden-selected-comic2':character.comics.items[3].selected }">
+                      <p class="comicNameContainer" (mouseenter)="character.comics.items[3].selected = !character.comics.items[3].selected" (mouseleave)="character.comics.items[3].selected = !character.comics.items[3].selected">{{character.comics.items[0].name}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

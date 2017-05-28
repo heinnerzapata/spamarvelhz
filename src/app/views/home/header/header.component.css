@@ -10,23 +10,29 @@ header{
 }
 
 #imgLogo{
-  width: 120px;
-  height: 50px;
-  margin-top: 5px;
-  margin-bottom: 5px;
+  width: 145px;
+  min-height: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 #txtSearch{
   margin-top: 5px;
   margin-bottom: 5px;
-  width: 70%;
-  height: 35px;
-  font-size: 18px;
+  width: 75%;
+  height: 55px;
+  font-size: 20px;
   color:#424242;
+  padding: 15px;
+  border-radius: 4px;
 }
 
 .logo-align{
   text-align:text-center;
+}
+
+#txtSearchContainer{
+  margin-right: 12px;
 }
 
 #imgSearch{
@@ -36,8 +42,8 @@ header{
   margin-top: -5px;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 770px) {
   #txtSearch{
-    width: 90%;
+    width: 100%;
   }
 }

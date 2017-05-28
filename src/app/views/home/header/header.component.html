@@ -1,0 +1,18 @@
+<section id="headerComponent">
+  <header>
+    <div class="container-fluid">
+        <div class="row">
+          <div class="col-xs-12 col-md-1 text-center">
+            <div><img id="imgLogo" src="assets/images/Marvel-Logo.png"></div>
+          </div>
+          <div class="col-xs-12 col-md-8 text-right align-self-center">
+            <div id="txtSearchContainer">
+              <input id="txtSearch" type="text" placeholder="Search character.." [(ngModel)]="value" (ngModelChange)="updateSearchFilter(value)">
+              <img id="imgSearch" class="hidden-sm-down" src="assets/images/search.png">
+            </div>
+          </div>
+          <div class="col-xs-12 col-md-3 hidden-md-down"></div>
+        </div>
+    </div>
+  </header>
+</section>
