@@ -14,6 +14,10 @@ import {SortNavComponent} from './views/home/sortnav/sortnav.component';
 import { CardListComponent } from './views/home/cardlist/cardlist.component';
 import {HeaderComponent} from './views/home/header/header.component';
 
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import {Ng2PaginationModule} from 'ng2-pagination'; // <-- import the module
+
+
 import { routes } from './app.routes'
 
 @NgModule({
@@ -22,7 +26,9 @@ import { routes } from './app.routes'
      RouterModule,
      HttpModule,
      routes,
-     FormsModule
+     FormsModule,
+     Ng2OrderModule,
+     Ng2PaginationModule
    ],
    declarations: [
       AppComponent,

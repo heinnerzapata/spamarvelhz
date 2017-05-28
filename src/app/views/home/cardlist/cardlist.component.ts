@@ -1,19 +1,25 @@
-import { Component , Input , OnChanges , SimpleChanges} from '@angular/core';
+import { Component , Input , OnChanges , SimpleChanges , Pipe , PipeTransform} from '@angular/core';
 import { Character } from './../../../models/character';
 import { MarvelApiService } from './../../../services/marvelapi.service';
 import { SearchService } from './../../../services/search.service';
+
 
 @Component({
     selector : 'cardlist-component',
     templateUrl : './cardlist.component.html',
     styleUrls: ['./cardlist.component.css'],
-    providers:[MarvelApiService , SearchService]
+    providers:[MarvelApiService , SearchService],
+
 })
 
 export class CardListComponent{
 
   @Input()
   searchFilter:String;
+  @Input()
+  sortFilter:String;
+
+  order:String;
 
   constructor(private marvelApiService: MarvelApiService) {
 
@@ -26,7 +32,7 @@ export class CardListComponent{
   public characters:Array<Character>;
 
   consultar(searchFilter) {
-    
+
     this.marvelApiService.getCharacters(searchFilter).subscribe(
       (data) => this.characters = data.data.results
     );
@@ -34,6 +40,7 @@ export class CardListComponent{
 
   ngOnChanges(changes: SimpleChanges) {
 
+    this.order = this.sortFilter;
     this.consultar(this.searchFilter);
 
   }

@@ -1,7 +1,7 @@
 <section id="cardlistSection">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 noMargin noPadding cardContainer" *ngFor='let character of characters'>
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 noMargin noPadding cardContainer" *ngFor='let character of characters | orderBy: order | paginate: {itemsPerPage: 10, currentPage:page, id: "1"}; let i = index'>
         <div class="container card ">
           <div class="row">
               <div class="col-xs-12 col-md-6 text-center text-sm-center noMargin noPadding ">
@@ -86,6 +86,19 @@
             </div>
 
           </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="paginatorComponent">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div id="paginatorContainer">
+          <pagination-controls class="my-pagination" (pageChange)="page = $event" id="1" maxSize="7" directionLinks="true" autoHide="true">
+          </pagination-controls>
         </div>
       </div>
     </div>

@@ -2,6 +2,26 @@ body{
   background-color: rgb(244,244,244);
 }
 
+.ng2-pagination li{
+  border : solid 1px rgb(180,180,180);
+  padding: 4px;
+  color: rgb(180,180,180);
+  font-size: 15px;
+  font-weight: bold;
+  margin-left: 5px;
+
+  -webkit-box-shadow: 2px 2px 7px 0px rgba(0,0,0,0.33);
+-moz-box-shadow: 2px 2px 7px 0px rgba(0,0,0,0.33);
+box-shadow: 2px 2px 7px 0px rgba(0,0,0,0.33);
+}
+
+.ng2-pagination .current{
+  background-color: rgb(244,244,244) !important;
+  padding: 8px !important;
+  color: black !important;
+
+}
+
 @media (max-width: 550px) {
 
   .noMargin{

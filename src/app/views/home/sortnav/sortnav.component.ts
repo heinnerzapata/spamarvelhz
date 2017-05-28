@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { EventEmitter, Output, Component } from '@angular/core';
 
 @Component({
   selector: 'sortnav-component',
@@ -7,5 +7,11 @@ import { Component } from '@angular/core';
 })
 
 export class SortNavComponent{
+
+  @Output() sortEvent = new EventEmitter();
+
+  setOrder(order:String){
+      this.sortEvent.emit(order);      
+  }
 
 }

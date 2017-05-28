@@ -24,6 +24,8 @@
     "bootstrap": "^4.0.0-alpha.6",
     "core-js": "^2.4.1",
     "jquery": "^3.2.1",
+    "ng2-order-pipe": "^0.1.5",
+    "ng2-pagination": "^2.0.1",
     "rxjs": "^5.0.1",
     "tether": "^1.4.0",
     "ts-helpers": "^1.1.1",

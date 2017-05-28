@@ -14,9 +14,14 @@ import { HeaderComponent } from './header/header.component';
 export class HomeComponent{
 
   searchFilter:String;
+  orderFilter:String;
 
   onNotifySearch(message:string):void {
     this.searchFilter = message;
+  }
+
+  onNotifySort(message:String):void{
+    this.orderFilter = message;  
   }
 
 }

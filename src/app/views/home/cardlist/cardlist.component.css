@@ -163,6 +163,15 @@ box-shadow: 3px 3px 17px -5px rgba(0,0,0,0.75);
   margin-left: 20px;
 }
 
+
+#paginatorContainer{
+  padding: 20px;
+}
+
+.ng2-pagination li{
+  border : solid 2px red;
+}
+
 @media (max-width: 580px) {
 
   .imgCharacter{
