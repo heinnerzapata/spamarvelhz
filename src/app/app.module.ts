@@ -17,6 +17,8 @@ import {HeaderComponent} from './views/home/header/header.component';
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import {Ng2PaginationModule} from 'ng2-pagination'; // <-- import the module
 
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
+import { ConfirmComponent } from './views/home/modals/confirm.component';
 
 import { routes } from './app.routes'
 
@@ -28,7 +30,8 @@ import { routes } from './app.routes'
      routes,
      FormsModule,
      Ng2OrderModule,
-     Ng2PaginationModule
+     Ng2PaginationModule,
+     BootstrapModalModule
    ],
    declarations: [
       AppComponent,
@@ -36,7 +39,11 @@ import { routes } from './app.routes'
       FooterComponent,
       HomeComponent,
       SortNavComponent,
-      CardListComponent
+      CardListComponent,
+      ConfirmComponent
+   ],
+   entryComponents: [
+        ConfirmComponent
    ],
    providers: [],
    bootstrap: [ AppComponent ]
