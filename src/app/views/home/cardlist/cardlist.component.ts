@@ -3,6 +3,7 @@ import { Character } from './../../../models/character';
 import { MarvelApiService } from './../../../services/marvelapi.service';
 import { ConfirmComponent } from './../modals/confirm.component';
 import { DialogService } from "ng2-bootstrap-modal";
+import { Comic } from './../../../models/comic';
 
 @Component({
     selector : 'cardlist-component',
@@ -21,14 +22,42 @@ export class CardListComponent{
 
   order:String;
 
+  public comic;
+
   constructor(private marvelApiService: MarvelApiService,private dialogService:DialogService) {
 
     this.consultar(this.searchFilter);
 
   }
 
+  consultarComic(data){
+    
+      let disposable = this.dialogService.addDialog(ConfirmComponent, {
+          title:JSON.stringify(data),
+          message:data.title})
+          .subscribe((isConfirmed)=>{
+              //We get dialog result
+              if(isConfirmed) {
+                  //alert('accepted');
+              }
+              else {
+                  //alert('declined');
+              }
+          });
+      //We can close dialog calling disposable.unsubscribe();
+      //If dialog was not closed manually close it by timeout
+      setTimeout(()=>{
+          disposable.unsubscribe();
+      },10000);
+
+  }
 
   showConfirm(characterName:String,id:String) {
+    this.marvelApiService.getCharacter(id).subscribe(
+      (data) => this.comic = this.consultarComic(data.data.results[0])
+    );
+
+    /*
            let disposable = this.dialogService.addDialog(ConfirmComponent, {
                title:characterName,
                message:id})
@@ -46,6 +75,9 @@ export class CardListComponent{
            setTimeout(()=>{
                disposable.unsubscribe();
            },10000);
+*/
+
+
        }
 
 

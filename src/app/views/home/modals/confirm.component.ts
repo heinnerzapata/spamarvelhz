@@ -9,46 +9,72 @@ export interface ConfirmModel {
 }
 @Component({
     selector: 'confirm',
-    template: ` <div class="container">
-                <div class="row">
-                <div class="col-12 text-center">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                   <div class="modal-header">
-                     <div class="container">
-                      <div class="row">
-                        <div class="col-12 text-right">
-                          <button type="button" class="close" (click)="close()" >
-                            <img id="imgBtnClose" src="assets/images/btn-close.png">
-                          </button>
-                        </div>
-                      </div>
-                      <div class="row">
-                        <div class="col-12 col-md-5 text-center">
+    template: `
 
+                <!-- Modal -->
+<div id="modalContainer">
+</div>
+                <div class="modal-dialog">
+
+                  <div class="modal-content">
+                     <div class="modal-header">
+                       <div class="container">
+                        <div class="row">
+                          <div class="col-12 text-center">
+                            <button type="button" class="close" (click)="close()" >
+                              <img id="imgBtnClose" src="assets/images/btn-close.png">
+                            </button>
+                          </div>
                         </div>
-                        <div class="col-12 col-md-7 text-left">
-                          <div id="titleComicContent">
-                            <h4 class="modal-title">{{message | uppercase}}</h4>
+                        <div class="row">
+                          <div class="col-5 col-md-5 text-md-right text-center">
+                              <img id="img-comic" src='{{comic.thumbnail.path + "." +  comic.thumbnail.extension}}'>
+                          </div>
+                          <div class="col-12 col-md-7 text-left">
+                            <div id="titleComicContent">
+                              <div class="container">
+                                <div class="row">
+                                  <div class="col-12">
+                                    <h4 class="modal-title">{{comic.title | uppercase}}</h4>
+                                  </div>
+                                  <div class="col-12">
+                                    <p id="comic-description">{{comic.description}}</p>
+                                  </div>
+                                </div>
+                              </div>
+
+
+                            </div>
+                          </div>
+                        </div>
+                       </div>
+
+
+                     </div>
+
+                     <div class="container">
+
+                      <div class="row">
+                        <div id="left-modal" class="col-6 modal-option-container align-self-center" (mouseleave)="moveModalOption(1,image)" (mouseenter)="moveModalOption(0,image)">
+                          <img #image class="img-modal-left" src="assets/images/btn-favourites-default.png">
+                          <span>ADD TO FAVOURITES</span>
+                        </div>
+                        <div id="right-modal" class="col-6 modal-option-container align-self-center">
+                          <div id="right-modal">
+                            <img class="img-modal-left" src="assets/images/shopping-cart-primary.png">
+                            <span id="lblRight">BUY FOR $ {{comic.prices[0].price}}</span>
                           </div>
                         </div>
                       </div>
+
+                      <!--
+                       <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
+                       <button type="button" class="btn btn-default" (click)="close()" >Cancel</button> -->
+
                      </div>
+                   </div>
+              </div>
 
-
-                   </div>
-                   <div class="modal-body">
-                     <p  *ngIf="comic.title != undefined">{{ comic.title }}</p>
-                   </div>
-                   <div class="modal-footer">
-                     <button type="button" class="btn btn-primary" (click)="confirm()">OK</button>
-                     <button type="button" class="btn btn-default" (click)="close()" >Cancel</button>
-                   </div>
-                 </div>
-              </div>
-              </div>
-              </div>
-              </div>
 
               `,
      styleUrls: ['./confirm.component.css'],
@@ -58,25 +84,44 @@ export interface ConfirmModel {
 export class ConfirmComponent extends DialogComponent<ConfirmModel, boolean> implements ConfirmModel {
   title: string;
   message: string;
-  public comic;
-  public comicson;
+
+  public comic:Comic;
 
   constructor(private marvelApiService: MarvelApiService,dialogService: DialogService) {
     super(dialogService);
   }
 
   ngOnInit(){
-      this.consultar(this.message);
+      this.comic = JSON.parse(this.title);
   }
 
-  consultar(message:String) {
-    alert(message)
-    this.marvelApiService.getCharacter(message).subscribe(
-      (data) => this.comic = data.data.results[0]
-    );
+  moveModalOption(op:number,image:any){
 
-    //this.comicson = JSON.stringify(this.comic);
 
+    var obj = document.getElementById("left-modal");
+
+    switch(op){
+      case 0:{
+
+
+        obj.style.backgroundColor = "rgb(50,40,39)";
+        obj.style.color = "rgb(236,29,35)";
+        image.src = "assets/images/btn-favourites-primary.png";
+
+
+        break;
+      }
+      case 1:{
+
+
+        obj.style.backgroundColor = "rgb(220,220,220)";
+        obj.style.color = "rgb(61,51,50)";
+        image.src = "assets/images/btn-favourites-default.png";
+
+
+        break;
+      }
+    }
   }
 
   confirm() {

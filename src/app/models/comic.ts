@@ -1,11 +1,17 @@
-class Prices{
+class Price{
   type:String;
   price:String;
+}
+
+class Thumbnail{
+  path:String;
+  extension:String;
 }
 
 export class Comic{
   id:String;
   title:String;
   description:String;
-  prices:Prices;
+  prices:Array<Price>;
+  thumbnail:Thumbnail;
 }
