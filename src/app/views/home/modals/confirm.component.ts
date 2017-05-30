@@ -55,7 +55,7 @@ export interface ConfirmModel {
                      <div class="container">
 
                       <div class="row">
-                        <div id="left-modal" class="col-6 modal-option-container align-self-center" (mouseleave)="moveModalOption(1,image)" (mouseenter)="moveModalOption(0,image)">
+                        <div id="left-modal" class="col-6 modal-option-container align-self-center" (mouseleave)="moveModalOption(1,image)" (mouseenter)="moveModalOption(0,image)" (click)="confirm()">
                           <img #image class="img-modal-left" src="assets/images/btn-favourites-default.png">
                           <span>ADD TO FAVOURITES</span>
                         </div>
@@ -94,6 +94,7 @@ export class ConfirmComponent extends DialogComponent<ConfirmModel, boolean> imp
   ngOnInit(){
       this.comic = JSON.parse(this.title);
   }
+
 
   moveModalOption(op:number,image:any){
 

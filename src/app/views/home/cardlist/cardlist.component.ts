@@ -1,16 +1,16 @@
-import { Component , Input , OnChanges , SimpleChanges , Pipe , PipeTransform} from '@angular/core';
+import { Component , Input , OnChanges , SimpleChanges , Pipe , PipeTransform , EventEmitter, Output} from '@angular/core';
 import { Character } from './../../../models/character';
 import { MarvelApiService } from './../../../services/marvelapi.service';
 import { ConfirmComponent } from './../modals/confirm.component';
 import { DialogService } from "ng2-bootstrap-modal";
 import { Comic } from './../../../models/comic';
+import { Favorite } from './../../../models/favorite';
 
 @Component({
     selector : 'cardlist-component',
     templateUrl : './cardlist.component.html',
     styleUrls: ['./cardlist.component.css'],
-    providers:[MarvelApiService],
-
+    providers:[MarvelApiService]
 })
 
 export class CardListComponent{
@@ -19,6 +19,9 @@ export class CardListComponent{
   searchFilter:String;
   @Input()
   sortFilter:String;
+
+  @Output()
+  newFavorite = new EventEmitter();
 
   order:String;
 
@@ -31,7 +34,7 @@ export class CardListComponent{
   }
 
   consultarComic(data){
-    
+
       let disposable = this.dialogService.addDialog(ConfirmComponent, {
           title:JSON.stringify(data),
           message:data.title})
@@ -39,6 +42,7 @@ export class CardListComponent{
               //We get dialog result
               if(isConfirmed) {
                   //alert('accepted');
+                  this.newFavorite.emit( JSON.stringify(new Favorite(data.id,data.title , data.thumbnail.path + '.' + data.thumbnail.extension))  );
               }
               else {
                   //alert('declined');

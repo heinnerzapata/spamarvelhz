@@ -13,6 +13,8 @@ import {HomeComponent} from './views/home/home.component';
 import {SortNavComponent} from './views/home/sortnav/sortnav.component';
 import { CardListComponent } from './views/home/cardlist/cardlist.component';
 import {HeaderComponent} from './views/home/header/header.component';
+import {FavoritesComponent} from './views/home/favorites/favorites.component';
+
 
 import { Ng2OrderModule } from 'ng2-order-pipe';
 import {Ng2PaginationModule} from 'ng2-pagination'; // <-- import the module
@@ -40,7 +42,8 @@ import { routes } from './app.routes'
       HomeComponent,
       SortNavComponent,
       CardListComponent,
-      ConfirmComponent
+      ConfirmComponent,
+      FavoritesComponent
    ],
    entryComponents: [
         ConfirmComponent

@@ -4,16 +4,16 @@
     <div class="row">
       <div class="col-xs-12 col-lg-9">
         <div class="row">
-          <div class="col-12">
+          <div class="col-12 sortNavComponentParent">
             <sortnav-component (sortEvent)='onNotifySort($event)'></sortnav-component>
           </div>
-          <div class="col-12 noPadding">
-            <cardlist-component [searchFilter]="searchFilter" [sortFilter]="orderFilter"></cardlist-component>
+          <div class="col-12 noPadding cardListComponentParent">
+            <cardlist-component (newFavorite)="onNotyfyNewFavorite($event)" [searchFilter]="searchFilter" [sortFilter]="orderFilter"></cardlist-component>
           </div>
         </div>
       </div>
       <div class="col-xs-12 col-lg-3">
-        favorites
+        <favorites-component [newFavouriteJSON]="newFavouriteJSON"></favorites-component>
       </div>
     </div>
   </div>

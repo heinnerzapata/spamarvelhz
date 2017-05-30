@@ -2,6 +2,15 @@
   border:solid 2px red;
 }
 
+.cardListComponentParent{
+  background-color: rgb(244,244,244) !important;
+}
+
+.sortNavComponentParent{
+  background-color: rgb(244,244,244) !important;
+  margin-top: 5px;
+}
+
 #homeSection{
 
 }
