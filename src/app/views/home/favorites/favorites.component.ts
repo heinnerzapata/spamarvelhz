@@ -36,9 +36,9 @@ export class FavoritesComponent{
 
       let ObjNewFavouriteJSON = JSON.parse(this.newFavouriteJSON);
 
-      let NewFavId:String = String(ObjNewFavouriteJSON.id);
-      let NewFavTitle:String = String(ObjNewFavouriteJSON.title);
-      let NewFavThumbnail:String = String(ObjNewFavouriteJSON.thumbnail);
+      let NewFavId:string = String(ObjNewFavouriteJSON.id);
+      let NewFavTitle:string = String(ObjNewFavouriteJSON.title);
+      let NewFavThumbnail:string = String(ObjNewFavouriteJSON.thumbnail);
 
       this.setNewFavourite(new Favorite(NewFavId,NewFavTitle,NewFavThumbnail));
     }
@@ -46,7 +46,7 @@ export class FavoritesComponent{
 
   }
 
-  deleteFavorite(id:String){
+  deleteFavorite(id:string){
     let i = 0;
     for(i = 0;i<this.favorites.length;i++){
       if(id == this.favorites[i].id){

@@ -17,7 +17,7 @@ export class HeaderComponent{
 
   value: string;
 
-  updateSearchFilter(newFilter:String){
+  updateSearchFilter(newFilter:string){
     //this.searchService.setSearchFilter(newFilter);
     this.searchEvent.emit(newFilter);
   }

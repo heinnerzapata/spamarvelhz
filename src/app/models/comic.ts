@@ -1,17 +1,17 @@
 class Price{
-  type:String;
-  price:String;
+  type:string;
+  price:string;
 }
 
 class Thumbnail{
-  path:String;
-  extension:String;
+  path:string;
+  extension:string;
 }
 
 export class Comic{
-  id:String;
-  title:String;
-  description:String;
+  id:string;
+  title:string;
+  description:string;
   prices:Array<Price>;
   thumbnail:Thumbnail;
 }

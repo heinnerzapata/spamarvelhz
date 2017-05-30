@@ -50,6 +50,11 @@
 
 #lblRight{
   color:rgb(236,29,35);
+
+}
+
+#lblRight{
+
 }
 
 .modal-option-container{
@@ -62,5 +67,12 @@
 
 @media (max-width: 550px) {
 
+  #lblLeft{
+    font-size: 10px;
+  }
+
+  #lblRight{
+    font-size: 10px;
+  }
 
 }

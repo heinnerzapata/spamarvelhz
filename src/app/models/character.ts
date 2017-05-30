@@ -1,6 +1,6 @@
 class Thumbnail{
-  path:String;
-  extension:String;
+  path:string;
+  extension:string;
   constructor(path,extension){
     this.extension = extension;
     this.path = path;
@@ -8,8 +8,8 @@ class Thumbnail{
 }
 
 class Items{
-  resourceURI:String;
-  name:String;
+  resourceURI:string;
+  name:string;
   selected:Boolean;
 }
 
@@ -19,8 +19,8 @@ class Comics{
 
 export class Character{
   id:number;
-  name:String;
-  description:String;
+  name:string;
+  description:string;
   thumbnail:Thumbnail;
   comics:Comics;
   constructor(id:number,name:string,description:string,extension:string,path:string){

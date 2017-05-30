@@ -13,20 +13,20 @@ import { FavoritesComponent } from './favorites/favorites.component'
 
 export class HomeComponent{
 
-  searchFilter:String;
-  orderFilter:String;
-  newFavouriteJSON:String;
+  searchFilter:string;
+  orderFilter:string;
+  newFavouriteJSON:string;
 
 
   onNotifySearch(message:string):void {
     this.searchFilter = message;
   }
 
-  onNotifySort(message:String):void{
+  onNotifySort(message:string):void{
     this.orderFilter = message;
   }
 
-  onNotyfyNewFavorite(message:String):void{
+  onNotyfyNewFavorite(message:string):void{
     this.newFavouriteJSON = message;
   }
 

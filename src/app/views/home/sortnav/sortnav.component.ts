@@ -10,8 +10,8 @@ export class SortNavComponent{
 
   @Output() sortEvent = new EventEmitter();
 
-  setOrder(order:String){
-      this.sortEvent.emit(order);      
+  setOrder(order:string){
+      this.sortEvent.emit(order);
   }
 
 }

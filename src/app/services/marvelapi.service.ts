@@ -8,7 +8,7 @@ export class MarvelApiService {
     private http: Http
   ) {}
 
-  getCharacters(searchFilter:String) {
+  getCharacters(searchFilter:string) {
 
     var filter = '';
 
@@ -21,7 +21,9 @@ export class MarvelApiService {
   }
 
 
-  getCharacter(message:String){
+  getCharacter(message:string){
+
+    message = message.replace('http','https');
 
     /*
 

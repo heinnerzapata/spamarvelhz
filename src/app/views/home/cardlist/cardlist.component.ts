@@ -16,14 +16,16 @@ import { Favorite } from './../../../models/favorite';
 export class CardListComponent{
 
   @Input()
-  searchFilter:String;
+  searchFilter:string;
   @Input()
-  sortFilter:String;
+  sortFilter:string;
 
   @Output()
   newFavorite = new EventEmitter();
 
-  order:String;
+  order:string;
+
+  page:string;
 
   public comic;
 
@@ -56,7 +58,7 @@ export class CardListComponent{
 
   }
 
-  showConfirm(characterName:String,id:String) {
+  showConfirm(characterName:string,id:string) {
     this.marvelApiService.getCharacter(id).subscribe(
       (data) => this.comic = this.consultarComic(data.data.results[0])
     );

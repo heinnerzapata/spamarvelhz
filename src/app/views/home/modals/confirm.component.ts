@@ -55,11 +55,11 @@ export interface ConfirmModel {
                      <div class="container">
 
                       <div class="row">
-                        <div id="left-modal" class="col-6 modal-option-container align-self-center" (mouseleave)="moveModalOption(1,image)" (mouseenter)="moveModalOption(0,image)" (click)="confirm()">
+                        <div id="left-modal" class="col-12 col-md-6 modal-option-container align-self-center" (mouseleave)="moveModalOption(1,image)" (mouseenter)="moveModalOption(0,image)" (click)="confirm()">
                           <img #image class="img-modal-left" src="assets/images/btn-favourites-default.png">
-                          <span>ADD TO FAVOURITES</span>
+                          <span id="lblLeft">ADD TO FAVOURITES</span>
                         </div>
-                        <div id="right-modal" class="col-6 modal-option-container align-self-center">
+                        <div id="right-modal" class="col-12 col-md-6 modal-option-container align-self-center">
                           <div id="right-modal">
                             <img class="img-modal-left" src="assets/images/shopping-cart-primary.png">
                             <span id="lblRight">BUY FOR $ {{comic.prices[0].price}}</span>
